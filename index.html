@@ -3,13 +3,18 @@
     <head><title>TypeScript Project</title></head>
     <body>
       <script src="main.js"></script>
-      List of Numbers: <input type="text" id="numList">
+      Once you done, leave the input field to get both Sum and Product of your list of numbers
       <br />
-      <button onclick="getSum()">Get Sum </button>
+      List of Numbers: <input type="text" id="numList" onchange="getSumAndProduct()">
+      <br />
+      <button onclick="getSum()">Sum </button>
       <span id="sum"></span>
       <br />
-      <button onclick="getProduct()">Get Product </button>
+      <button onclick="getProduct()">Product </button>
       <span id="product"></span>
-      <p id="debug"></p>
+      <br /><br /><br />
+      What is your favorite string?<input type="text" id="string" onchange="getMostUsedCharacter()"><br />
+      The most used character in this string is:
+      <span id="mostUsedCharacter"></span>
     </body>
 </html>
