@@ -7,15 +7,17 @@ var numbersFromInput = function () {
     var numbers = splitedValue.filter(function (v) { return !isNaN(v); });
     return numbers;
 };
-var getSumAndProduct = function () {
-    document.getElementById("sum").innerHTML = numbersFromInput().reduce(function (a, b) { return a + b; }, 0).toString();
-    document.getElementById("product").innerHTML = numbersFromInput().reduce(function (a, b) { return a * b; }, 1).toString();
-};
+var sum = function (a, b) { return a + b; };
+var product = function (a, b) { return a * b; };
 var getSum = function () {
-    document.getElementById("sum").innerHTML = numbersFromInput().reduce(function (a, b) { return a + b; }, 0).toString();
+    return numbersFromInput().reduce(sum).toString();
 };
 var getProduct = function () {
-    document.getElementById("product").innerHTML = numbersFromInput().reduce(function (a, b) { return a * b; }, 1).toString();
+    return numbersFromInput().reduce(product, 1).toString();
+};
+var getSumAndProduct = function () {
+    document.getElementById("sum").innerHTML = getSum();
+    document.getElementById("product").innerHTML = getProduct();
 };
 var getMostUsedCharacter = function () {
     var inputValue = document.getElementById("string").value;

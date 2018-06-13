@@ -2,30 +2,33 @@
 const comma = ',';
 
 // Helper function returns an array of numbers from text input value
-const numbersFromInput = () => {
+const numbersFromInput = (): number[] => {
   let inputValue = (<HTMLInputElement>document.getElementById("numList")).value;
   let splitedValue: Array<number> = inputValue.split(comma).map(v => parseInt(v));
   let numbers = splitedValue.filter(v => !isNaN(v))
   return numbers;
 }
-const getSumAndProduct = () => {
-  document.getElementById("sum").innerHTML = numbersFromInput().reduce((a, b) => a + b, 0).toString();
-  document.getElementById("product").innerHTML = numbersFromInput().reduce((a, b) => a * b, 1).toString();
-}
-const getSum = () => {
-  document.getElementById("sum").innerHTML = numbersFromInput().reduce((a, b) => a + b, 0).toString();
+const sum = (a : number, b: number) : number => a + b;
+const product = (a : number, b: number) : number => a * b;
+const getSum = () : string => {
+  return numbersFromInput().reduce(sum).toString();
 }
 
-const getProduct = () => {
-  document.getElementById("product").innerHTML = numbersFromInput().reduce((a, b) => a * b, 1).toString();
+const getProduct = () : string  => {
+  return numbersFromInput().reduce(product,1).toString();
 }
 
-const getMostUsedCharacter = () => {
+const getSumAndProduct = () : void => {
+  document.getElementById("sum").innerHTML = getSum();
+  document.getElementById("product").innerHTML = getProduct();
+}
+
+const getMostUsedCharacter = (): void => {
   let inputValue = (<HTMLInputElement>document.getElementById("string")).value;
   let mostUsedChar = '';
   let charTable = {}
-  for (var i = 0; i < inputValue.length; i++) {
-    var c = inputValue[i];
+  for (let i = 0; i < inputValue.length; i++) {
+    let c = inputValue[i];
     if (!charTable[c]) {
      charTable[c] = 0 ;
     }
